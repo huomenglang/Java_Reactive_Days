@@ -15,6 +15,8 @@ public class EGenerate {
 //           fluxSink.complete();
 //        }).subscribe(System.out::println);
 
+    // flux.generate
+        // we can set condition in flux and can only emit 1 valeu pertime and infinit loop till meet condition
         //case wanna emit 10 elements
 //        AtomicInteger atomicInteger=new AtomicInteger(0);
 //        Flux.generate(synchronousSink -> {
