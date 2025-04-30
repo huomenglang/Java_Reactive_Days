@@ -10,7 +10,11 @@ import java.util.stream.Stream;
 public class HotPublisher {
     public static void main(String[] args) {
 
-        Flux<String> flux = Flux.fromStream(() -> getMovies()).delayElements(Duration.ofSeconds(1)).share();
+        //share=publish().refCount(1)
+        //use share() to share stream data when seconse subscriber coz stream consume data only once
+        Flux<String> flux = Flux.fromStream(() -> getMovies())
+            .delayElements(Duration.ofSeconds(1))
+            .share();
 
         flux.subscribe(Singleton.subscriber("Mr.Lang"));
         Utils.delay(5);
